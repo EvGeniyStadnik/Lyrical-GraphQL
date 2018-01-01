@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
+import '../style/style.css';
 import fetchSongs from '../queries/fetchSongs';
 
 class SongList extends Component {
@@ -28,7 +29,7 @@ class SongList extends Component {
             return (
               <li key={id} className="collection-item">
                 { title }
-                <i onClick={() => this.handleDeleteSong(id)} className="material-icons">close</i>
+                <i onClick={() => this.handleDeleteSong(id)} className="material-icons delete-icon">close</i>
               </li>
             )
           }) }

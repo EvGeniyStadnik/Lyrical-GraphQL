@@ -12,20 +12,24 @@ class SongCreate extends Component {
 
     this.state = {
       title: '',
+      loading: false,
     }
 
   }
 
   handleSubmit (event) {
     event.preventDefault();
-    console.log(this.props);
     if (this.state.title === '') return;
+    this.setState({ loading: true });
     this.props.mutate({
       variables: {
         title: this.state.title,
       },
       refetchQueries: [{ query: fetchSongs }]
-    }).then(() => hashHistory.push("/"));
+    }).then(() => {
+      hashHistory.push("/");
+      this.setState({ loading: false });
+    });
   }
 
   handleChange (e) {
@@ -45,6 +49,7 @@ class SongCreate extends Component {
             onChange={this.handleChange.bind(this)}
             value={this.state.value}
           />
+          { this.state.loading && <div>Loading list....</div> }
         </form>
       </div>
     );
