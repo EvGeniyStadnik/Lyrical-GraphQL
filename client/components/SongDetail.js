@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import { graphql } from 'react-apollo';
 
 import FetchSong from '../queries/fetchSong';
@@ -11,6 +12,7 @@ class SongDetail extends Component {
 
     return (
       <div>
+        <Link to="/" >Song List</Link>
         <h1>{song.title}</h1>
       </div>
     );
