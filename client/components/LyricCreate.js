@@ -55,6 +55,7 @@ const AddLyricToSong = gql`
       id
       lyrics{
         id
+        likes
         content
       }
     }
@@ -62,4 +63,25 @@ const AddLyricToSong = gql`
 `;
 
 export default graphql(AddLyricToSong)(LyricCreate);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

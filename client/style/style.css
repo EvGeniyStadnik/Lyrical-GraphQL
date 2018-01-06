@@ -1,8 +1,13 @@
-.collection-item {
+.collection-item, .voteLyric {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.delete-icon {
+.voteLyric {
+  width: 50px;
+}
+
+.delete-icon, .thumbUp {
   cursor: pointer;
 }
