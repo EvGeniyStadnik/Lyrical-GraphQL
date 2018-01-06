@@ -6,9 +6,17 @@ import '../style/style.css';
 
 class LyricList extends Component {
 
-  handleLike(id){
+  handleLike(id, likes){
     this.props.mutate({
-      variables: { id }
+      variables: { id },
+      optimisticResponse: {
+        __typename: 'Mutation',
+        likeLyric: {
+          id,
+          likes: likes + 1,
+          __typename: "LyricType"
+        }
+      }
     });
   }
 
@@ -24,7 +32,7 @@ class LyricList extends Component {
               <div className='voteLyric'>
                 <i
                   className='material-icons thumbUp'
-                  onClick={() => this.handleLike(id)}
+                  onClick={() => this.handleLike(id, likes)}
                 >
                   thumb_up
                 </i>
